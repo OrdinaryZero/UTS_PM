@@ -1,0 +1,191 @@
+Ujian Tengah Semester (UTS)
+
+Mata Kuliah
+
+: Pemrograman Mobile
+
+Program Studi : Teknologi Informasi
+
+SKS
+
+:3
+
+Dosen Pengampu : Muhayat, M.IT
+
+Bentuk ujian
+
+: Proyek individu dan demonstrasi
+
+Judul studi kasus : KampusCare -- Aplikasi Catatan Fasilitas Kampus
+
+Hari / Tanggal : Kamis, 19 November 2026
+
+A. Studi kasus
+Mahasiswa sering menemukan masalah fasilitas kampus, seperti lampu padam, kursi rusak, ruangan kurang bersih, LCD Projector tidak tersedia atau jaringan internet bermasalah. Informasi tersebut biasanya dicatat dalam percakapan atau catatan terpisah sehingga sulit ditemukan kembali. Anda diminta membangun KampusCare, aplikasi Android untuk mencatat dan mengelola temuan fasilitas kampus pada perangkat pengguna. Aplikasi harus memungkinkan pengguna menambah, membaca, mengubah, dan menghapus catatan. Data yang sudah disimpan harus tersedia kembali setelah aplikasi dihentikan dan dibuka ulang.
+B. Rumusan tugas
+Bangun aplikasi KampusCare menggunakan Kotlin dan XML Views yang memiliki navigasi jelas, tampilan konsisten, formulir tervalidasi, daftar berbasis RecyclerView, serta penyimpanan lokal menggunakan Room dan SharedPreferences. Pisahkan pengelolaan data melalui Repository dan ViewModel, kemudian buktikan keberhasilannya melalui pengujian. Integrasikan kompetensi berikut dalam satu aplikasi:
+
+Praktikum 01 02 03 04
+
+Kompetensi yang diterapkan Struktur proyek Android, resources, ViewBinding, listener, dan Logcat Activity, lifecycle, state, dan Intent
+XML responsif, formulir, dan validasi
+UX, RecyclerView, Fragment, dan navigasi
+
+Bukti pada proyek UTS Proyek dapat dibangun; resource dan kode tertata; interaksi dasar berfungsi.
+Perpindahan Activity membawa ID yang benar; input tetap tersedia saat rotasi; pengamatan lifecycle dicatat. Formulir dapat digunakan pada layar sempit, landscape, font besar, dan saat keyboard terbuka. Daftar­rincian terhubung; tombol Kembali bekerja; kondisi kosong memiliki petunjuk.
+
+UTS PEMROGRAMAN MOBILE 20261 | 1
+
+Praktikum 05
+
+Kompetensi yang diterapkan SharedPreferences, SQLite, Entity, DAO, Room, Repository, dan ViewModel
+
+C. Layar dan fitur wajib
+
+Bukti pada proyek UTS CRUD dan preferensi benar-benar tersimpan; alur akses data dapat dijelaskan.
+
+Layar
+Beranda Daftar Catatan Rincian Catatan Formulir Tambah/Ubah Pengaturan
+
+Isi dan perilaku minimum
+Nama aplikasi, penjelasan singkat, jumlah catatan dari database, dan tombol Tambah Catatan. RecyclerView berisi judul, kategori, lokasi, dan waktu pembuatan; setiap item dapat membuka rincian. Seluruh informasi catatan, keterangan Tersimpan di perangkat, tombol Ubah, dan tombol Hapus.
+Input judul, kategori, lokasi, deskripsi, serta tombol Simpan ke Perangkat.
+Pilihan urutan terbaru atau terlama, serta identitas pengembang: nama, NIM, dan kelas.
+
+Susunan yang digunakan:
+· MainActivity menjadi induk Fragment Beranda, Daftar, Rincian, dan Pengaturan. · FormActivity digunakan untuk menambah atau mengubah catatan melalui explicit
+Intent. · Saat mengubah, Intent membawa ID catatan, kemudian aplikasi membaca data yang
+sesuai dari database. · Setelah penyimpanan berhasil, pengguna kembali ke layar sebelumnya dan data
+diperbarui.
+Navigasi antartujuan utama boleh menggunakan bottom navigation atau menu yang konsisten. Formulir dan rincian merupakan bagian dari alur tugas, sehingga tidak perlu semuanya dijadikan tab.
+
+D. Struktur data dan aturan validasi
+
+Buat minimal satu Entity dengan struktur berikut:
+
+Data
+id judul kategori lokasi deskripsi waktuDibuat
+
+Ketentuan
+Primary key otomatis; tetap sama ketika catatan diubah. Wajib, 5­100 karakter setelah spasi tepi dihapus. Wajib dipilih; pilihan petunjuk tidak dianggap kategori valid. Wajib, 3­80 karakter. Wajib, 20­500 karakter. Diisi otomatis saat catatan pertama disimpan; tidak berubah saat penyuntingan.
+
+Kategori minimum: Penerangan, Kebersihan, Perabot, Jaringan, dan Lainnya.
+
+UTS PEMROGRAMAN MOBILE 20261 | 2
+
+Ketentuan perilaku: 1. Input tidak valid ditolak dengan pesan yang menjelaskan perbaikannya. 2. Input yang sudah diketik tidak dikosongkan ketika validasi gagal. 3. Pembaruan tidak menambah record baru. 4. Penghapusan harus melalui dialog konfirmasi; memilih Batal mempertahankan data. 5. Catatan yang tidak ditemukan ditangani dengan pesan dan navigasi yang aman. 6. Urutan terbaru/terlama mengacu pada waktu pembuatan, dengan ID sebagai pembeda
+jika waktunya sama.
+E. Ketentuan penyimpanan dan arsitektur
+· Room menyimpan seluruh catatan dalam database SQLite berbasis file. · Entity mendefinisikan struktur data, sedangkan DAO menyediakan operasi CRUD. · Repository memusatkan validasi dan akses DAO. · ViewModel mengelola proses serta state tampilan, termasuk memuat, kosong, gagal,
+dan berhasil. · SharedPreferences menyimpan pilihan urutan daftar dan memulihkannya saat aplikasi
+dibuka ulang. · Activity dan Fragment menangani interaksi serta tampilan; operasi database tidak ditulis
+langsung pada listener tombol. · Binding Fragment mengikuti lifecycle View dan dilepas ketika View dihancurkan.
+Untuk demonstrasi, buat sedikitnya lima catatan melalui formulir, mencakup minimal tiga kategori. Daftar yang hanya dibentuk ulang dari kode tidak memenuhi bukti persistensi.
+F. Ketentuan UI/UX berbasis XML
+Tampilan dinilai dari keterbacaan, konsistensi, dan kemudahan menyelesaikan tugas. Mahasiswa boleh menggunakan Material Components untuk Views, termasuk komponen formulir, kartu, toolbar, dan navigasi.
+Arahan desain berikut dapat dipakai atau dikembangkan:
+
+Aspek Identitas visual Hierarki informasi Daftar Formulir Aksi utama Umpan balik Kondisi kosong
+
+Ketentuan
+Nama aplikasi, ikon, serta palet warna konsisten. Contoh arah warna: teal, navy, dan latar terang. Judul layar terlihat jelas; informasi utama lebih menonjol daripada metadata. Item memiliki jarak yang nyaman, kategori mudah dikenali, dan informasi tidak bertumpuk. Label tetap jelas setelah pengguna mengetik; field wajib dan kesalahan mudah dikenali. Tombol menggunakan kata kerja jelas, seperti Tambah Catatan dan Simpan ke Perangkat. Pesan berhasil muncul setelah operasi berhasil; proses berjalan dan kegagalan dibedakan. Tampilkan pesan seperti Belum ada catatan beserta aksi untuk membuat catatan pertama.
+
+UTS PEMROGRAMAN MOBILE 20261 | 3
+
+Aspek Responsivitas Aksesibilitas
+
+Ketentuan
+Konten dan tombol dapat dijangkau pada layar sempit, landscape, font besar, dan keyboard terbuka. Teks memiliki kontras memadai; status tidak hanya dibedakan dengan warna; ikon aksi memiliki label bermakna.
+
+Gunakan area sentuh kontrol interaktif minimal 48 × 48 dp, mengikuti panduan aksesibilitas Android Views. developer.android.com
+Sebelum implementasi, sertakan sketsa lima layar dan penjelasan singkat mengenai tiga keputusan desain. Contohnya: alasan posisi tombol tambah, pemilihan label simpan, dan cara membedakan aksi hapus.
+
+G. Skenario pengujian wajib
+
+ID
+
+Pengujian
+
+U01 Membuka aplikasi tanpa catatan
+
+U02
+
+Menyimpan formulir kosong atau tidak valid
+
+U03 Menambah catatan valid
+
+U04 Menambah lima catatan
+
+U05 Memilih item daftar
+
+U06 Mengubah catatan
+
+U07 Membatalkan penghapusan U08 Mengonfirmasi penghapusan
+
+U09 Mengganti urutan daftar
+
+U10
+
+Force stop setelah operasi selesai, lalu buka ulang
+
+U11 Rotasi saat mengisi atau menyunting
+
+U12 Navigasi dan tombol Back
+
+U13
+
+Layar sempit, landscape, font besar, dan keyboard
+
+U14
+
+Mode pesawat dan ketukan simpan berulang
+
+U15
+
+Membuka ID yang tidak ditemukan melalui skenario uji terkontrol
+
+Hasil yang diharapkan
+Jumlah nol, kondisi kosong jelas, aksi tambah tersedia. Pesan kesalahan tampil; tidak ada record baru. Catatan tersimpan dan memperoleh ID. Data dan jumlah sesuai isi database. Rincian sesuai ID item yang dipilih. Data berubah; ID dan waktu pembuatan tetap; jumlah tidak bertambah. Catatan tetap tersedia. Catatan hilang dari database dan tampilan. Urutan sesuai pilihan dan preferensi tersimpan. Penambahan, perubahan, penghapusan, dan preferensi tetap sesuai. Input yang belum disimpan tidak tertimpa nilai awal. Kembali ke layar yang sesuai tanpa penumpukan layar yang keliru. Informasi terbaca; field dan tombol dapat dijangkau. Fitur lokal tetap berfungsi; ketukan berulang saat proses berjalan tidak menambah record ganda pada skenario uji. Pesan aman tampil; aplikasi tidak crash dan tidak membuat record pengganti.
+
+Catat hasil aktual, status lulus/gagal/belum diuji, bukti, dan perbaikan. Pada uji buka ulang, jangan menghapus penyimpanan aplikasi atau memasang ulang aplikasi.
+
+UTS PEMROGRAMAN MOBILE 20261 | 4
+
+H. Rubrik penilaian
+
+Aspek
+Struktur proyek dan kesiapan build
+Activity, Intent, Fragment, navigasi, dan state
+UI/UX dan XML responsif
+Room, Entity, DAO, dan CRUD SharedPreferences
+Repository dan ViewModel
+Pengujian, dokumentasi, dan perbaikan Demonstrasi dan pemahaman individual
+Total
+
+Bobot 5%
+15%
+25% 25% 5% 10%
+10%
+5% 100%
+
+Indikator utama
+Proyek tertata, resources konsisten, APK dapat dibangun. ID benar, Back konsisten, input bertahan saat rotasi. Visual konsisten, alur jelas, aksesibel, kondisi UI lengkap. Operasi benar, ID terjaga, persistensi terbukti. Pilihan urutan disimpan dan dipulihkan. Tanggung jawab terpisah dan proses tidak menghambat UI. Bukti aktual, keterulangan, serta temuan­ perbaikan tercatat. Mahasiswa mampu menjelaskan alur dan melakukan perubahan kecil.
+
+I. Pertanyaan analitis
+1. Mengapa pilihan urutan disimpan di SharedPreferences, sedangkan catatan disimpan di Room?
+2. Apa hubungan SQLite, Entity, DAO, dan Room pada aplikasi Anda? 3. Bagaimana aplikasi memastikan tombol Ubah memperbarui record yang sama? 4. Apa perbedaan data yang bertahan saat rotasi dengan data yang bertahan setelah force
+stop? 5. Tunjukkan alur dari tombol Simpan hingga database dan daftar diperbarui. 6. Tunjukkan satu masalah UI/UX yang diperbaiki berdasarkan pengujian. 7. Lakukan perubahan kecil, misalnya mengubah batas validasi judul, lalu jelaskan bagian
+kode yang terdampak.
+
+J. Luaran yang dikumpulkan
+1. Tautan repository proyek, lengkap dengan source code, README (berisi identitas, versi alat, cara menjalankan, fitur, struktur aplikasi, hasil uji, serta keterbatasan), konfigurasi build, Gradle Wrapper, dan skema Room.
+2. Laporan Singkat Proyek dalam betuk file .pdf. Lengkap dengan screenshot lima layar utama, validasi gagal, serta pengujian terkait lainnya, termasuk jawaban 7 pertanyaan analitis.
+
+K. Link Kumpul UTS
+Kelas TI24A: https://s.id/UTS-PM-TI24A Kelas TI24B: https://s.id/UTS-PM-TI24B
+
+Deadline: 30 November 2026, Pukul. 23.00 Wita.
+
+UTS PEMROGRAMAN MOBILE 20261 | 5
+
+

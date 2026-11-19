@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KampusCare</string>
+    <string name="app_description">Aplikasi catatan fasilitas kampus untuk pelaporan dan pemantauan masalah fasilitas kampus.</string>
+    <string name="daftar_catatan">Daftar Catatan</string>
+    <string name="rincian_catatan">Rincian Catatan</string>
+    <string name="form_tambah_catatan">Form Tambah Catatan</string>
+    <string name="tambah_catatan">Tambah Catatan</string>
+    <string name="ubah_catatan">Ubah Catatan</string>
+    <string name="simpan">Simpan ke Perangkat</string>
+    <string name="batal">Batal</string>
+    <string name="pengaturan">Pengaturan</string>
+    <string name="jumlah_catatan">Jumlah catatan: %d</string>
+    <string name="jumlah_catatan_0">Jumlah catatan: 0</string>
+    <string name="tidak_ada_catatan">Belum ada catatan.</string>
+    <string name="judul">Judul</string>
+    <string name="kategori">Kategori</string>
+    <string name="lokasi">Lokasi</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="ubah">Ubah</string>
+    <string name="hapus_title">Konfirmasi Hapus</string>
+    <string name="hapus_message">Yakin ingin menghapus catatan ini?</string>
+    <string name="hapus">Hapus</string>
+    <string name="identitas_pengembang">Identitas Pengembang</string>
+    <string name="dev_name">Aditya Febrian</string>
+    <string name="dev_nim">240104040129</string>
+    <string name="dev_kelas">TI24A</string>
+    <string name="open_repo">Buka Repository</string>
+    <string name="urutan_daftar">Urutan daftar:</string>
+    <string name="urutan_terbaru">Terbaru</string>
+    <string name="urutan_terlama">Terlama</string>
+    <string name="error_validation">Validasi gagal:</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="kategori_array">
+        <item>-- Pilih Kategori --</item>
+        <item>Penerangan</item>
+        <item>Kebersahan</item>
+        <item>Perabot</item>
+        <item>Jaringan</item>
+        <item>Lainnya</item>
+    </string-array>
+</resources>
